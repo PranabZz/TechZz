@@ -1,26 +1,25 @@
-
-import Layout from "./components/Layout";
-import Preloader from './components/Preloader';
-import Hero from './components/Sections/Hero';
-import Progress from './components/ProgressBar';
-import OurAchievements from './components/Sections/OurAchivements';
-import OurServices from './components/Sections/OurServices';
-
-
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Main';
+import AboutUs from './pages/AboutUs';
+import Blog from './pages/Blog';
+import ContactUs from './pages/ContactUs';
 
 function App() {
- 
   return (
-    <>
+    <Router>
       <Layout>
-        {/* <Preloader/> */}
-        <Progress/>
-        <Hero/>
-        <OurAchievements/>
-        <OurServices/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+        </Routes>
       </Layout>
-    </>
-  )
+    </Router>
+  );
 }
 
 export default App;

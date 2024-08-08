@@ -3379,7 +3379,7 @@ button#sofax-subscription-btn:hover {
 .sofax-breadcrumb {
     text-align: center;
     padding: 195px 0 130px;
-    background-color: var(--dark-bg)
+    background-color: #00a811;
 }
 
 @media (max-width:991px) {
