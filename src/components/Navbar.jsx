@@ -76,7 +76,7 @@ const Navbar = () => {
       <div className="container">
         <nav className="navbar site-navbar">
           <div className="brand-logo">
-            <a href="index.html"><img src="assets/vertex.png" height="50px" width="50px" /></a>
+            <a href="index.html"><img src="assets/vertex.png" height="60px" width="80px" /></a>
           </div>
 
           <div className="menu-block-wrapper">
