@@ -11,7 +11,7 @@ const Footer = () => {
                                 <h2>Powering Progress Through IT Innovation </h2>
                             </div>
                             <div class="sofax-footer-shapev8">
-                                <img src="/assets/images/v8/shape1.png" alt="shape"/>
+                                <img src="/assets/images/v5/shape1.png" alt="shape"/>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-4 d-flex align-items-center justify-content-end">
