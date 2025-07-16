@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-const Blog = () => {
+const Article = () => {
+  const { slug } = useParams();
+
   const blogPosts = [
     {
       id: 1,
       title: "The Future of Web Design: Trends to Watch in 2025",
-      excerpt:
-        "Explore the latest web design trends shaping the digital landscape, from immersive UI to AI-driven personalization.",
       date: "July 10, 2025",
       slug: "future-web-design-2025",
       image: "/assets/images/blog/blog1.png",
@@ -26,8 +26,6 @@ const Blog = () => {
     {
       id: 2,
       title: "How to Boost Engagement with Email Marketing",
-      excerpt:
-        "Discover strategies to create compelling email campaigns that drive traffic and build lasting connections with your audience.",
       date: "June 28, 2025",
       slug: "boost-engagement-email-marketing",
       image: "/assets/images/blog/blog2.png",
@@ -45,12 +43,28 @@ const Blog = () => {
     },
   ];
 
+  const post = blogPosts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return (
+      <div className="sofax-error">
+        <div className="container">
+          <h2>Blog Post Not Found</h2>
+          <p>Sorry, the blog post you're looking for doesn't exist.</p>
+          <Link to="/blog" className="sofax-default-btn pill">
+            <span className="button-wraper">Back to Blog</span>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* Breadcrumb */}
       <div className="sofax-breadcrumb">
         <div className="container">
-          <h1 className="post__title">Our Blog</h1>
+          <h1 className="post__title">{post.title}</h1>
           <nav className="breadcrumbs">
             <ul>
               <li>
@@ -59,88 +73,84 @@ const Blog = () => {
               <li>
                 <img src="/assets/images/about/arrow.png" alt="arrow" />
               </li>
-              <li aria-current="page">Blog</li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li>
+                <img src="/assets/images/about/arrow.png" alt="arrow" />
+              </li>
+              <li aria-current="page">{post.title}</li>
             </ul>
           </nav>
         </div>
       </div>
       {/* End breadcrumb */}
 
-      {/* Blog Section */}
+      {/* Article Section */}
       <section className="section sofax-section-padding">
         <div className="container">
-          <div className="sofax-section-title text-center max-width-large">
-            <h2>Insights & Ideas</h2>
-            <p>
-              Dive into our latest articles for tips, trends, and strategies to
-              elevate your digital presence.
-            </p>
-          </div>
-          <div className="row">
-            {blogPosts.map((post) => (
-              <div key={post.id} className="col-lg-6 col-md-6 mb-4">
-                <div
-                  className="sofax-blog-card wow fadeInUpX"
-                  data-wow-delay={`${0.1 * post.id}s`}
-                >
-                  <div className="sofax-blog-image">
-                    <img src={post.image} alt={post.title} />
-                  </div>
-                  <div className="sofax-blog-content">
-                    <span className="sofax-blog-date">{post.date}</span>
-                    <h4>{post.title}</h4>
-                    <p>{post.excerpt}</p>
-                    <Link
-                      className="sofax-default-btn pill"
-                      to={`/blog/${post.slug}`}
-                    >
-                      <span className="button-wraper">Read More</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="sofax-article-content">
+            <div className="sofax-article-image">
+              <img src={post.image} alt={post.title} />
+            </div>
+            <div className="sofax-article-meta">
+              <span className="sofax-blog-date">{post.date}</span>
+            </div>
+            <div
+              className="sofax-article-body"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+            <div className="sofax-article-back">
+              <Link to="/blog" className="sofax-default-btn pill">
+                <span className="button-wraper">Back to Blog</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-      {/* End Blog Section */}
+      {/* End Article Section */}
 
       {/* CSS */}
       <style>{`
-        .sofax-blog-card {
-          background: #fff;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          overflow: hidden;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .sofax-article-content {
+          max-width: 800px;
+          margin: 0 auto;
         }
-        .sofax-blog-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        .sofax-blog-image img {
+        .sofax-article-image img {
           width: 100%;
-          height: 250px;
+          height: 400px;
           object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 20px;
         }
-        .sofax-blog-content {
-          padding: 20px;
+        .sofax-article-meta {
+          margin-bottom: 20px;
         }
         .sofax-blog-date {
-          display: block;
           font-size: 0.9rem;
           color: #666;
-          margin-bottom: 10px;
         }
-        .sofax-blog-content h4 {
+        .sofax-article-body {
+          font-size: 1.1rem;
+          color: #333;
+          line-height: 1.6;
+        }
+        .sofax-article-body h2 {
+          font-size: 2rem;
+          color: #333;
+          margin: 20px 0 10px;
+        }
+        .sofax-article-body h3 {
           font-size: 1.5rem;
           color: #333;
-          margin-bottom: 10px;
+          margin: 15px 0 10px;
         }
-        .sofax-blog-content p {
-          font-size: 1rem;
-          color: #666;
+        .sofax-article-body p {
           margin-bottom: 15px;
+        }
+        .sofax-article-back {
+          margin-top: 30px;
+          text-align: center;
         }
         .sofax-default-btn.pill {
           display: inline-block;
@@ -154,15 +164,32 @@ const Blog = () => {
         .sofax-default-btn.pill:hover {
           background: #0056b3;
         }
+        .sofax-error {
+          text-align: center;
+          padding: 50px 20px;
+        }
+        .sofax-error h2 {
+          font-size: 2rem;
+          color: #333;
+          margin-bottom: 20px;
+        }
+        .sofax-error p {
+          font-size: 1.1rem;
+          color: #666;
+          margin-bottom: 20px;
+        }
         @media (max-width: 768px) {
-          .sofax-blog-image img {
-            height: 200px;
+          .sofax-article-image img {
+            height: 250px;
           }
-          .sofax-blog-content h4 {
+          .sofax-article-body h2 {
+            font-size: 1.5rem;
+          }
+          .sofax-article-body h3 {
             font-size: 1.25rem;
           }
-          .sofax-blog-content p {
-            font-size: 0.9rem;
+          .sofax-article-body p {
+            font-size: 1rem;
           }
         }
       `}</style>
@@ -170,4 +197,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Article;
