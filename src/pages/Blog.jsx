@@ -10,7 +10,7 @@ const Blog = () => {
         "Explore the latest web design trends shaping the digital landscape, from immersive UI to AI-driven personalization.",
       date: "July 10, 2025",
       slug: "future-web-design-2025",
-      image: "/assets/images/blog/blog1.png",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       content: `
         <h2>The Future of Web Design: Trends to Watch in 2025</h2>
         <p>Web design is evolving at a rapid pace, driven by advancements in technology and changing user expectations. As we move into 2025, several trends are set to redefine how we create digital experiences.</p>
@@ -30,7 +30,7 @@ const Blog = () => {
         "Discover strategies to create compelling email campaigns that drive traffic and build lasting connections with your audience.",
       date: "June 28, 2025",
       slug: "boost-engagement-email-marketing",
-      image: "/assets/images/blog/blog2.png",
+      image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       content: `
         <h2>How to Boost Engagement with Email Marketing</h2>
         <p>Email marketing remains one of the most effective ways to connect with your audience. However, with inboxes overflowing, standing out requires strategy and creativity.</p>
@@ -94,7 +94,7 @@ const Blog = () => {
                       className="sofax-default-btn pill"
                       to={`/blog/${post.slug}`}
                     >
-                      <span className="button-wraper">Read More</span>
+                      <span className="button-wraper text-white">Read More</span>
                     </Link>
                   </div>
                 </div>
