@@ -10,7 +10,7 @@ const Article = () => {
       title: "The Future of Web Design: Trends to Watch in 2025",
       date: "July 10, 2025",
       slug: "future-web-design-2025",
-      image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/images/blog/blog1.png",
       content: `
         <h2>The Future of Web Design: Trends to Watch in 2025</h2>
         <p>Web design is evolving at a rapid pace, driven by advancements in technology and changing user expectations. As we move into 2025, several trends are set to redefine how we create digital experiences.</p>
@@ -28,7 +28,7 @@ const Article = () => {
       title: "How to Boost Engagement with Email Marketing",
       date: "June 28, 2025",
       slug: "boost-engagement-email-marketing",
-      image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/images/blog/blog2.png",
       content: `
         <h2>How to Boost Engagement with Email Marketing</h2>
         <p>Email marketing remains one of the most effective ways to connect with your audience. However, with inboxes overflowing, standing out requires strategy and creativity.</p>
@@ -52,7 +52,7 @@ const Article = () => {
           <h2>Blog Post Not Found</h2>
           <p>Sorry, the blog post you're looking for doesn't exist.</p>
           <Link to="/blog" className="sofax-default-btn pill">
-            <span className="button-wraper">Back to Blog</span>
+            <span className="button-wraper text-white">Back to Blog</span>
           </Link>
         </div>
       </div>
@@ -62,28 +62,7 @@ const Article = () => {
   return (
     <>
       {/* Breadcrumb */}
-      <div className="sofax-breadcrumb">
-        <div className="container">
-          <h1 className="post__title">{post.title}</h1>
-          <nav className="breadcrumbs">
-            <ul>
-              <li>
-                <a href="index.html">Home</a>
-              </li>
-              <li>
-                <img src="/assets/images/about/arrow.png" alt="arrow" />
-              </li>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li>
-                <img src="/assets/images/about/arrow.png" alt="arrow" />
-              </li>
-              <li aria-current="page">{post.title}</li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+     
       {/* End breadcrumb */}
 
       {/* Article Section */}
