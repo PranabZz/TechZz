@@ -169,7 +169,7 @@ const About = () => {
                 </p>
                 <div className="sofax-counter-wrap-v5">
                   <div className="sofax-counter-data-v5">
-                    <h2>78k+</h2>
+                    <h2>10+</h2>
                     <p>Projects Completed</p>
                   </div>
                   <div className="sofax-counter-data-v5">
@@ -213,7 +213,7 @@ const About = () => {
                   <div className="sofax-accordion-content">
                     <p>
                       Feel free to reach out via our contact page or email us directly at{" "}
-                      <a href="mailto:info@pranabkc321.com">info@pranabkc321.com</a>.
+                      <a href="mailto:pranabkc321@gmail.com">pranabkc321@gmail.com</a>.
                     </p>
                   </div>
                 </div>
