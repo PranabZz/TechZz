@@ -6,6 +6,8 @@ import Home from './pages/Main';
 import AboutUs from './pages/AboutUs';
 import Blog from './pages/Blog';
 import ContactUs from './pages/ContactUs';
+import Article from './pages/Article';
+
 
 function App() {
   return (
